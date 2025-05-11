@@ -5,9 +5,9 @@ from .models import Explanation, Note, Profile
 
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ("title", "user")
-    search_fields = ("title", "content")
-    list_filter = ("user",)
+    list_display = ("title", "profile")
+    search_fields = ("title", "content", "profile__nickname")
+    list_filter = ("profile",)
     ordering = ("-id",)
 
 
@@ -28,7 +28,7 @@ class ExplanationAdmin(admin.ModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("nickname", "user")
-    search_fields = ("nickname", "bio")
+    search_fields = ("nickname", "bio", "user__username")
     list_filter = ("user",)
     ordering = ("-id",)
 

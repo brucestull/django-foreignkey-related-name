@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ object.nickname }}</h1>
+<p>{{ object.bio }}</p>
+<a href="{% url 'profile-update' object.pk %}">Edit</a>
+<a href="{% url 'profile-delete' object.pk %}">Delete</a>
+{% endblock %}

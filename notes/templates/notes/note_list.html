@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Notes</h1>
+<ul>
+  {% for note in object_list %}
+    <li><a href="{% url 'note-detail' note.pk %}">{{ note.title }}</a> ({{ note.profile.nickname }})</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'note-create' %}">Create New Note</a>
+{% endblock %}

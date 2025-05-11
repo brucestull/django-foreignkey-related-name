@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Explanations</h1>
+<ul>
+  {% for explanation in object_list %}
+    <li><a href="{% url 'explanation-detail' explanation.pk %}">{{ explanation.name }}</a></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'explanation-create' %}">Create New Explanation</a>
+{% endblock %}
